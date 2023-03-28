@@ -10,6 +10,10 @@ public class PauseGame : MonoBehaviour
     public GameObject resume;
     public GameObject quit;
     public GameObject mainMenu;
+    public GameObject notesM;
+
+    public GameObject note01;
+    public GameObject note02;
     
     public AudioSource buttonSound;
 
@@ -18,11 +22,13 @@ public class PauseGame : MonoBehaviour
 
     void Start(){
         menu.SetActive(false);
+        notesM.SetActive(false);
         off = true;
         on = false;
     }
 
     void Update(){
+
         if(off && Input.GetKeyDown(KeyCode.Escape)){
             Time.timeScale = 0;
             menu.SetActive(true);
@@ -36,6 +42,7 @@ public class PauseGame : MonoBehaviour
             off = true;
             on = false;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
@@ -43,9 +50,12 @@ public class PauseGame : MonoBehaviour
         buttonSound.Play();
         Time.timeScale = 1;
         menu.SetActive(false);
+        notesM.SetActive(false);
         off = true;
         on = false;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        note01.SetActive(false);
     }
 
     public void MainMenu(){
@@ -56,5 +66,20 @@ public class PauseGame : MonoBehaviour
     public void Exit(){
         buttonSound.Play();
         Application.Quit();
+    }
+
+    public void NotesM(){
+        buttonSound.Play();
+        menu.SetActive(false);
+        notesM.SetActive(true);
+        
+        note01.SetActive(true);
+    }
+
+    public void Menu(){
+        buttonSound.Play();
+        menu.SetActive(true);
+        notesM.SetActive(false);
+        note01.SetActive(false);
     }
 }
