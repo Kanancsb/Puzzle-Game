@@ -72,7 +72,6 @@ public class PauseGame : MonoBehaviour
         buttonSound.Play();
         menu.SetActive(false);
         notesM.SetActive(true);
-        
         note01.SetActive(true);
     }
 
