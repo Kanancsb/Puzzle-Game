@@ -11,7 +11,6 @@ public class PickupNote : MonoBehaviour
 
     public Transform Player;
 
-    // Update is called once per frame
 
     void OnMouseOver(){
 

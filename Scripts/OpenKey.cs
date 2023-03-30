@@ -12,6 +12,7 @@ public class OpenKey : MonoBehaviour
 		public Transform Player;
 
 		public GameObject rkey;
+		public GameObject Hand;
 		
 		public AudioSource doorSound;
 
@@ -28,12 +29,14 @@ public class OpenKey : MonoBehaviour
 					float dist = Vector3.Distance(Player.position, transform.position);
 					if (dist < 3 && rkey.activeInHierarchy == true)
 					{
+						Hand.SetActive(true);
 						if (open == false)
 						{
 							if (Input.GetButtonDown("Action"))
 							{
 								StartCoroutine(opening());
 								doorSound.Play();
+								Hand.SetActive(false);  
 							}
 						}
 						else
@@ -44,6 +47,7 @@ public class OpenKey : MonoBehaviour
 								{
 									StartCoroutine(closing());
 									doorSound.Play();
+									Hand.SetActive(false);  
 								}
 							}
 
@@ -69,5 +73,9 @@ public class OpenKey : MonoBehaviour
 			open = false;
 			yield return new WaitForSeconds(.5f);
 		}
+
+		void OnMouseExit(){
+        Hand.SetActive(false);        
+    	}
 
 }
