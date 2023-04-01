@@ -35,7 +35,6 @@ namespace SojaExiles
 							{
 								StartCoroutine(opening());
 								doorSound.Play();
-								iText.SetActive(false);
 							}
 						}
 						else

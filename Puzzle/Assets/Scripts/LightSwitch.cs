@@ -54,4 +54,8 @@ public class LightSwitch : MonoBehaviour
 
     }
 
+    void OnMouseExit(){
+        iText.SetActive(false);
+    }
+
 }

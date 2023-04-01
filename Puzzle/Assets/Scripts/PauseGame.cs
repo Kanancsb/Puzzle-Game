@@ -10,18 +10,21 @@ public class PauseGame : MonoBehaviour
     public GameObject resume;
     public GameObject quit;
     public GameObject mainMenu;
-    public GameObject notesM;
+    public GameObject notesMenu;
 
-    public GameObject noteT;
+    public GameObject note01;
+    public GameObject note02;
+    public GameObject note03;
+    public GameObject note04;
     
     public AudioSource buttonSound;
 
-    public bool on;
-    public bool off;
+    private bool on;
+    private bool off;
 
     void Start(){
         menu.SetActive(false);
-        notesM.SetActive(false);
+        notesMenu.SetActive(false);
         off = true;
         on = false;
     }
@@ -49,7 +52,7 @@ public class PauseGame : MonoBehaviour
         buttonSound.Play();
         Time.timeScale = 1;
         menu.SetActive(false);
-        notesM.SetActive(false);
+        notesMenu.SetActive(false);
         off = true;
         on = false;
         Cursor.visible = false;
@@ -69,20 +72,53 @@ public class PauseGame : MonoBehaviour
     public void NotesM(){
         buttonSound.Play();
         menu.SetActive(false);
-        notesM.SetActive(true);
+        notesMenu.SetActive(true);
     }
 
     public void Menu(){
         buttonSound.Play();
-        menu.SetActive(true);
-        notesM.SetActive(false);
+        if(note01.activeInHierarchy == true || note02.activeInHierarchy == true || note03.activeInHierarchy || note04.activeInHierarchy == true){
+            note01.SetActive(false);
+            note02.SetActive(false);
+            note03.SetActive(false);
+            note04.SetActive(false);
+        }else{
+            menu.SetActive(true);
+            notesMenu.SetActive(false);
+        }
     }
 
-    public void OpenNote(){
-        noteT.SetActive(true);
+    public void OpenNote01(){
+        if(note01.activeInHierarchy == true || note02.activeInHierarchy == true || note03.activeInHierarchy || note04.activeInHierarchy == true){
+            note01.SetActive(false);
+            note02.SetActive(false);
+            note03.SetActive(false);
+            note04.SetActive(false);
+        }
+        note01.SetActive(true);
+        note02.SetActive(false);
+        note03.SetActive(false);
+        note04.SetActive(false);
     }
 
-    public void CloseNote(){
-        noteT.SetActive(false);
+    public void OpenNote02(){
+        note01.SetActive(false);
+        note02.SetActive(true);
+        note03.SetActive(false);
+        note04.SetActive(false);
+    }
+
+    public void OpenNote03(){
+        note01.SetActive(false);
+        note02.SetActive(false);
+        note03.SetActive(true);
+        note04.SetActive(false);
+    }
+
+    public void OpenNote04(){
+        note01.SetActive(false);
+        note02.SetActive(false);
+        note03.SetActive(false);
+        note04.SetActive(true);
     }
 }
