@@ -12,8 +12,7 @@ public class PauseGame : MonoBehaviour
     public GameObject mainMenu;
     public GameObject notesM;
 
-    public GameObject note01;
-    public GameObject note02;
+    public GameObject noteT;
     
     public AudioSource buttonSound;
 
@@ -55,7 +54,6 @@ public class PauseGame : MonoBehaviour
         on = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        note01.SetActive(false);
     }
 
     public void MainMenu(){
@@ -72,13 +70,19 @@ public class PauseGame : MonoBehaviour
         buttonSound.Play();
         menu.SetActive(false);
         notesM.SetActive(true);
-        note01.SetActive(true);
     }
 
     public void Menu(){
         buttonSound.Play();
         menu.SetActive(true);
         notesM.SetActive(false);
-        note01.SetActive(false);
+    }
+
+    public void OpenNote(){
+        noteT.SetActive(true);
+    }
+
+    public void CloseNote(){
+        noteT.SetActive(false);
     }
 }
