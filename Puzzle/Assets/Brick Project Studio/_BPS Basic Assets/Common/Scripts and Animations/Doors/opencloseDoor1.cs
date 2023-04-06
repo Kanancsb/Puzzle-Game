@@ -11,6 +11,7 @@ namespace SojaExiles
 		public Animator openandclose1;
 		public bool open;
 		public Transform Player;
+		public GameObject iText;
 
 		void Start()
 		{
@@ -25,9 +26,10 @@ namespace SojaExiles
 					float dist = Vector3.Distance(Player.position, transform.position);
 					if (dist < 15)
 					{
+						iText.SetActive(true);
 						if (open == false)
 						{
-							if (Input.GetMouseButtonDown(0))
+							if (Input.GetButtonDown("Action"))
 							{
 								StartCoroutine(opening());
 							}
@@ -36,7 +38,7 @@ namespace SojaExiles
 						{
 							if (open == true)
 							{
-								if (Input.GetMouseButtonDown(0))
+								if (Input.GetButtonDown("Action"))
 								{
 									StartCoroutine(closing());
 								}
@@ -51,6 +53,10 @@ namespace SojaExiles
 
 		}
 
+		void OnMouseExit(){
+			iText.SetActive(false);
+		}
+		
 		IEnumerator opening()
 		{
 			print("you are opening the door");
