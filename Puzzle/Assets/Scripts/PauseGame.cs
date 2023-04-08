@@ -88,6 +88,7 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    
     public void OpenNote01(){
         if(note01.activeInHierarchy == true || note02.activeInHierarchy == true || note03.activeInHierarchy || note04.activeInHierarchy == true){
             note01.SetActive(false);
