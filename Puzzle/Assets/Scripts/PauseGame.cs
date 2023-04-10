@@ -17,12 +17,19 @@ public class PauseGame : MonoBehaviour
     public GameObject note03;
     public GameObject note04;
     
+    public GameObject[] notes;
+
+    public GameObject[] NoteTrigger;
+    
     public AudioSource buttonSound;
 
     private bool on;
     private bool off;
 
     void Start(){
+        foreach(GameObject trigger in NoteTrigger){
+            trigger.SetActive(false);
+        }
         menu.SetActive(false);
         notesMenu.SetActive(false);
         off = true;
@@ -38,6 +45,10 @@ public class PauseGame : MonoBehaviour
             on = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            note01.SetActive(false);
+            note02.SetActive(false);
+            note03.SetActive(false);
+            note04.SetActive(false);
         }else if(on && Input.GetKeyDown(KeyCode.Escape)){
             Time.timeScale = 1;
             menu.SetActive(false);
@@ -45,6 +56,10 @@ public class PauseGame : MonoBehaviour
             on = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            note01.SetActive(false);
+            note02.SetActive(false);
+            note03.SetActive(false);
+            note04.SetActive(false);
         }
     }
 
@@ -57,6 +72,10 @@ public class PauseGame : MonoBehaviour
         on = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        note01.SetActive(false);
+        note02.SetActive(false);
+        note03.SetActive(false);
+        note04.SetActive(false);
     }
 
     public void MainMenu(){
@@ -77,7 +96,7 @@ public class PauseGame : MonoBehaviour
 
     public void Menu(){
         buttonSound.Play();
-        if(note01.activeInHierarchy == true || note02.activeInHierarchy == true || note03.activeInHierarchy || note04.activeInHierarchy == true){
+        if(note01.activeInHierarchy || note02.activeInHierarchy || note03.activeInHierarchy || note04.activeInHierarchy){
             note01.SetActive(false);
             note02.SetActive(false);
             note03.SetActive(false);
@@ -90,36 +109,46 @@ public class PauseGame : MonoBehaviour
 
     
     public void OpenNote01(){
-        if(note01.activeInHierarchy == true || note02.activeInHierarchy == true || note03.activeInHierarchy || note04.activeInHierarchy == true){
-            note01.SetActive(false);
-            note02.SetActive(false);
-            note03.SetActive(false);
-            note04.SetActive(false);
+        for(int i=0; i < NoteTrigger.Length; i++){
+            if(NoteTrigger[0].activeInHierarchy){
+                note01.SetActive(true);
+            }
         }
-        note01.SetActive(true);
         note02.SetActive(false);
         note03.SetActive(false);
         note04.SetActive(false);
     }
 
     public void OpenNote02(){
+        for(int i=0; i < NoteTrigger.Length; i++){
+            if(NoteTrigger[1].activeInHierarchy){
+                note02.SetActive(true);
+            }
+        }
         note01.SetActive(false);
-        note02.SetActive(true);
         note03.SetActive(false);
         note04.SetActive(false);
     }
 
     public void OpenNote03(){
+        for(int i=0; i < NoteTrigger.Length; i++){
+            if(NoteTrigger[2].activeInHierarchy){
+                note03.SetActive(true);
+            }
+        }
         note01.SetActive(false);
         note02.SetActive(false);
-        note03.SetActive(true);
         note04.SetActive(false);
     }
 
     public void OpenNote04(){
+        for(int i=0; i < NoteTrigger.Length; i++){
+            if(NoteTrigger[3].activeInHierarchy){
+                note03.SetActive(true);
+            }
+        }
         note01.SetActive(false);
         note02.SetActive(false);
         note03.SetActive(false);
-        note04.SetActive(true);
     }
 }

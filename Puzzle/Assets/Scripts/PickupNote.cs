@@ -6,6 +6,7 @@ public class PickupNote : MonoBehaviour
 {
     public GameObject Text;
     public GameObject NoteOB;
+    public GameObject NoteTrigger;
 
     public AudioSource pSound;
 
@@ -24,6 +25,7 @@ public class PickupNote : MonoBehaviour
                 if (dist < 3){
                     Text.SetActive(false);
                     NoteOB.SetActive(true);
+                    NoteTrigger.SetActive(true);
                 }
             } 
         }
