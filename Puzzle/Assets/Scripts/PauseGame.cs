@@ -11,6 +11,7 @@ public class PauseGame : MonoBehaviour
     public GameObject quit;
     public GameObject mainMenu;
     public GameObject notesMenu;
+    public GameObject buttonsMenu;
 
     public GameObject note01;
     public GameObject note02;
@@ -32,6 +33,7 @@ public class PauseGame : MonoBehaviour
         }
         menu.SetActive(false);
         notesMenu.SetActive(false);
+        buttonsMenu.SetActive(false);
         off = true;
         on = false;
     }
@@ -68,6 +70,7 @@ public class PauseGame : MonoBehaviour
         Time.timeScale = 1;
         menu.SetActive(false);
         notesMenu.SetActive(false);
+        buttonsMenu.SetActive(false);
         off = true;
         on = false;
         Cursor.visible = false;
@@ -104,7 +107,14 @@ public class PauseGame : MonoBehaviour
         }else{
             menu.SetActive(true);
             notesMenu.SetActive(false);
+            buttonsMenu.SetActive(false);
         }
+    }
+
+    public void Buttons(){
+        buttonSound.Play();
+        menu.SetActive(false);
+        buttonsMenu.SetActive(true);
     }
 
     

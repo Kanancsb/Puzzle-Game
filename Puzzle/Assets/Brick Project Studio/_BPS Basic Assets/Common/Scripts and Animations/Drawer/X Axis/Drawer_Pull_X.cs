@@ -9,9 +9,16 @@ namespace SojaExiles
 	public class Drawer_Pull_X : MonoBehaviour
 	{
 
+		public GameObject hand;
+		
+		public AudioSource drawerSound;
+
 		public Animator pull_01;
+
 		public bool open;
+
 		public Transform Player;
+
 
 		void Start()
 		{
@@ -24,12 +31,12 @@ namespace SojaExiles
 				if (Player)
 				{
 					float dist = Vector3.Distance(Player.position, transform.position);
-					if (dist < 10)
+					if (dist < 3)
 					{
-						print("object name");
+						hand.SetActive(true);
 						if (open == false)
 						{
-							if (Input.GetMouseButtonDown(0))
+							if (Input.GetButtonDown("Action"))
 							{
 								StartCoroutine(opening());
 							}
@@ -38,7 +45,7 @@ namespace SojaExiles
 						{
 							if (open == true)
 							{
-								if (Input.GetMouseButtonDown(0))
+								if (Input.GetButtonDown("Action"))
 								{
 									StartCoroutine(closing());
 								}
@@ -51,6 +58,10 @@ namespace SojaExiles
 
 			}
 
+		}
+
+		void OnMouseExit(){
+			hand.SetActive(false);
 		}
 
 		IEnumerator opening()
