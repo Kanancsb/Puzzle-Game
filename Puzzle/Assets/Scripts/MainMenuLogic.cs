@@ -8,6 +8,7 @@ public class MainMenuLogic : MonoBehaviour
     private GameObject mainMenu;
     private GameObject optionsMenu;
     private GameObject loading;
+    private GameObject buttonsMenu;
 
     public AudioSource buttonSound;
 
@@ -15,10 +16,12 @@ public class MainMenuLogic : MonoBehaviour
         mainMenu = GameObject.Find("MainMenuCanvas");
         optionsMenu = GameObject.Find("OptionsCanvas");
         loading = GameObject.Find("LoadingCanvas");
+        buttonsMenu = GameObject.Find("ButtonsCanvas");
 
         mainMenu.GetComponent<Canvas>().enabled = true;
         optionsMenu.GetComponent<Canvas>().enabled = false;
         loading.GetComponent<Canvas>().enabled = false;
+        optionsMenu.GetComponent<Canvas>().enabled = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
@@ -36,6 +39,14 @@ public class MainMenuLogic : MonoBehaviour
         buttonSound.Play();
         mainMenu.GetComponent<Canvas>().enabled = false;
         optionsMenu.GetComponent<Canvas>().enabled = true;
+
+    }
+
+    public void ButtonsButton(){
+        buttonSound.Play();
+        mainMenu.GetComponent<Canvas>().enabled = false;
+        optionsMenu.GetComponent<Canvas>().enabled = false;
+        buttonsMenu.GetComponent<Canvas>().enabled = true;
 
     }
 
