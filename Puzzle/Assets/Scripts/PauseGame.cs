@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -17,8 +18,6 @@ public class PauseGame : MonoBehaviour
     public GameObject note02;
     public GameObject note03;
     public GameObject note04;
-    
-    public GameObject[] notes;
 
     public GameObject[] NoteTrigger;
     
@@ -83,6 +82,7 @@ public class PauseGame : MonoBehaviour
 
     public void MainMenu(){
         buttonSound.Play();
+        SceneManager.LoadScene("MainMenu");
 
     }
 

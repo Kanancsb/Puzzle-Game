@@ -383,6 +383,7 @@
 "Assets/Scripts/Dialogue.cs"
 "Assets/Scripts/Flashlight.cs"
 "Assets/Scripts/LightSwitch.cs"
+"Assets/Scripts/MainMenuLogic.cs"
 "Assets/Scripts/Note.cs"
 "Assets/Scripts/OpenKey.cs"
 "Assets/Scripts/OpenKeypad.cs"
