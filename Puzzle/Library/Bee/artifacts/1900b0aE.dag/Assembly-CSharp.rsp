@@ -382,6 +382,8 @@
 "Assets/Scripts/CircuitBreaker.cs"
 "Assets/Scripts/Dialogue.cs"
 "Assets/Scripts/Flashlight.cs"
+"Assets/Scripts/Laptop.cs"
+"Assets/Scripts/LaptopOpen.cs"
 "Assets/Scripts/LightSwitch.cs"
 "Assets/Scripts/MainMenuLogic.cs"
 "Assets/Scripts/Note.cs"
